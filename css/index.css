@@ -133,10 +133,6 @@ button[disabled=disabled], button:disabled {
 	border: 1px solid red;
 }
 
-.btn-add {
-	
-}
-
 /* The Modal (background) */
 .modal {
 	display: none; /* Hidden by default */
@@ -163,10 +159,10 @@ button[disabled=disabled], button:disabled {
 	
   /* The Close Button */
   .close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
   }
   
   .close:hover,
