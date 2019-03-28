@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Aparecida Nutrição</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		
+	</head>
+	<script type="text/javascript" src="./json/pacientes.json"></script>
+	<body>
+		
+		<header>
+			<div class="container">
+				<h1>Aparecida Nutrição</h1>
+			</div>
+		</header>
+		<main>
+			<section class="container">
+				<h2>Meus pacientes</h2>
+				<table>
+					<thead id="above">
+						<tr class="categoria">
+						</tr>
+					</thead>
+					<tbody class="patients-table">
+					</tbody>
+				</table>
+
+				<button type="button" onclick="openModalAdd()" class="btn-add">Adicionar Paciente</button>
+
+				<!-- Modal -->
+				<div id="modal-add" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+
+						<section class="container">
+							<h2 id="titulo-form">Adicionar novo paciente</h2>
+							<form id="form-add">
+								<div id="form-nome" class="form-nome">
+									<label for="nome">Nome*:</label>
+									<input id="nome" name="nome" type="text" placeholder="Ex: Gabriel" class="campo">
+								</div>
+								<div id="form-peso" class="grupo">
+									<label for="peso">Peso(kg)*:</label>
+									<input id="peso" name="peso" type="text"
+									placeholder="Ex: 70" class="campo campo-medio">
+								</div>
+								<div id="form-altura" class="grupo form-altura">
+									<label for="altura">Altura*:</label>
+									<input id="altura" name="altura" type="text"
+									placeholder="Ex: 1.80" class="campo campomedio">
+								</div>
+								<div id="form-gordura" class="grupo form-gordura">
+									<label for="gordura">% de Gordura*:</label>
+									<input id="gordura" name="gordura" type="text"
+									placeholder="Ex: 20"
+									class="campo campo-medio">
+								</div>
+								<button id="adicionar-paciente" class="botao btoprincipal" onclick="submitForm1(event)">Adicionar</button>
+							</form>
+						</section>
+					</div> <!--Fim do modal-->
+
+				</div>
+
+				
+
+			</section>
+		</main>
+		<script src="js/main.js"></script>
+	</body>
+</html>

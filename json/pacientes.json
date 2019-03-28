@@ -1,0 +1,37 @@
+[
+  {
+    "nome": "Paulo",
+    "peso": 50,
+    "altura": 1.6,
+    "gordura": 10,
+    "imc": 50
+  },
+  {
+    "nome": "João",
+    "peso": 73,
+    "altura": 1.6,
+    "gordura": 20,
+    "imc": 70
+  },
+  {
+    "nome": "Erica",
+    "peso": 80,
+    "altura": 1.6,
+    "gordura": 30,
+    "imc": 80
+  },
+  {
+    "nome": "Douglas",
+    "peso": 65,
+    "altura": 1.6,
+    "gordura": 40,
+    "imc": 35
+  },
+  {
+    "nome": "Tatiana",
+    "peso": 95,
+    "altura": 1.6,
+    "gordura": 50,
+    "imc": 42
+  }
+]
