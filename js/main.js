@@ -1,24 +1,17 @@
-var titulo = document.querySelector(".container");
-// console.log('te perder:', titulo);
-var title = "testes";
+var _this = document;
 window['main'] = this;
-isValid = false;
-
-
-function calculoImc() {
-
-    var imc = peso / (altura * altura);
-
-}
+this.carregaDashboard();
+this.loadColumns();
+var isValidForm = false;
 
 function carregaDashboard() {
     var arrayCategoria = [ 'Nome', 'Peso(kg)', 'Altura(m)', 'Gordura Corporal(%)', 'IMC' ];
 
-    var trCategory = document.querySelector('.categoria');
+    var trCategory = _this.querySelector('.categoria');
     var colunas;
 
     arrayCategoria.forEach((item) => {
-        colunas = document.createElement('th');
+        colunas = _this.createElement('th');
         colunas.textContent = item;
         trCategory.appendChild(colunas);
     });
@@ -30,7 +23,7 @@ function loadColumns() {
     loadJSON( (response) => {
        var patients = JSON.parse(response);
        
-       var tbodyPaciente = document.querySelector('.patients-table');
+       var tbodyPaciente = _this.querySelector('.patients-table');
        var nomes;
    
        patients.forEach((item) => {
@@ -43,9 +36,9 @@ function loadColumns() {
                <td>${item.imc}</td>
                </tr>`;    
    
-           nomes = document.createElement('myElem');
+           nomes = _this.createElement('myElem');
            tbodyPaciente.appendChild(nomes);
-           document.querySelector('myElem').outerHTML = tr;
+           _this.querySelector('myElem').outerHTML = tr;
        });
     });
 }
@@ -65,24 +58,49 @@ function loadJSON(callback) {
 
  function openModalAdd() {
     
-    var modal = document.getElementById('modal-add');
-
-    var span = document.getElementsByClassName("close")[0];
-
+    var modal = _this.getElementById('modal-add');
+    var arrayNomes = [];
+    var span = _this.getElementsByClassName("close")[0];
+    
+    var form = _this.getElementById('form-add');
+    var inputs = form.querySelectorAll('input');
+    console.log('inputs: ', inputs);
     modal.style.display = "block";
     
-    span.onclick = function() { modal.style.display = "none"; }
+    span.onclick = function() { 
+        modal.style.display = "none";
+        
+        inputs.forEach((item, index) => {
+            item.value = '';
+            arrayNomes.push('form-' + item.name);
+            var div = _this.getElementById(arrayNomes[index]);
+            var p = div.querySelector('p');
+            if(p)
+                p.outerHTML = '';
+        });
+        
+    }
 
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+
+            inputs.forEach((item, index) => {
+                item.value = '';
+                arrayNomes.push('form-' + item.name);
+                var div = _this.getElementById(arrayNomes[index]);
+                var p = div.querySelector('p');
+                if(p)
+                    p.outerHTML = '';
+                });
         }
     }
+    
 
  }
 
  function submitForm1(event) {
-    var form = document.getElementById('form-add');
+    var form = _this.getElementById('form-add');
     event.preventDefault();
 
     var objeto = [
@@ -94,18 +112,17 @@ function loadJSON(callback) {
         }
     ];
 
-    this.addColumn(objeto);
+    this.isValidForm = this.validateFields(form);
 
+    if(this.isValidForm) {
+        this.addColumn(objeto);
+    }
  }
 
  function addColumn(patients) {
-    var tbodyPaciente = document.querySelector('.patients-table');
-    var form = document.getElementById('form-add');
+    var tbodyPaciente = _this.querySelector('.patients-table');
     var nomes;
 
-    var isValid = this.validateFields(form);
-    
-    if(isValid) {
         patients.forEach((item) => {
     
             var imc = item.peso / (item.altura * item.altura);
@@ -118,15 +135,14 @@ function loadJSON(callback) {
                 <td>${imc.toFixed(2)}</td>
                 </tr>`;    
     
-            nomes = document.createElement('elemento');
+            nomes = _this.createElement('elemento');
             tbodyPaciente.appendChild(nomes);
-            document.querySelector('elemento').outerHTML = tr;
+            _this.querySelector('elemento').outerHTML = tr;
         });
-    }
 
-    var modal = document.getElementById('modal-add');
-
-    // modal.style.display = "none";
+    var modal = _this.getElementById('modal-add');
+    console.log('modal: ', modal);
+    modal.style.display = "none";
 
 }
 
@@ -134,9 +150,10 @@ function validateFields(form) {
 
     var item_div = form.querySelectorAll('div');
     var p = form.querySelectorAll('p');
-    console.log('item: ', p);
+    
 
-    if(p.length != 0){
+    if(p.length != 0){ // significa que existem inputs inválidos
+        console.log('item: ', p);
         p.forEach((item) => {
             item.outerHTML = '';
         });
@@ -146,10 +163,10 @@ function validateFields(form) {
 
         if(!item.value.length){
             let newElement = `<p>Campo Obrigatório!</p>`;
-            var elemento = document.getElementById(item_div[index].id);
-            messageError = document.createElement('newElement');
+            var elemento = _this.getElementById(item_div[index].id);
+            messageError = _this.createElement('newElement');
             elemento.appendChild(messageError);
-            document.querySelector('newElement').outerHTML = newElement;
+            _this.querySelector('newElement').outerHTML = newElement;
         }
     });
 

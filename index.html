@@ -28,7 +28,9 @@
 					</tbody>
 				</table>
 
-				<button type="button" onclick="openModalAdd()" class="btn-add">Adicionar Paciente</button>
+				<div style="display:flex; justify-content: flex-end;">
+					<button type="button" onclick="openModalAdd()" class="btn-add">Adicionar Paciente</button>
+				</div>
 
 				<!-- Modal -->
 				<div id="modal-add" class="modal">
@@ -58,7 +60,9 @@
 									placeholder="Ex: 20"
 									class="campo campo-medio">
 								</div>
-								<button id="adicionar-paciente" class="botao btoprincipal" onclick="submitForm1(event)">Adicionar</button>
+								<div style="display:flex; justify-content:center;">
+									<button id="adicionar-paciente" class="btn-inside-modal" onclick="submitForm1(event)">Adicionar</button>
+								</div>
 							</form>
 						</section>
 					</div> <!--Fim do modal-->

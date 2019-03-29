@@ -18,6 +18,7 @@ header h1{
 	font-size: 2em;
 	display:inline-block;
 	vertical-align:	middle;
+	font-family: fantasy;
 }
 header h2{
 	font-size: 2em;
@@ -43,12 +44,13 @@ section{
 	overflow: hidden;
 }
 
-section h2{
+section h2 {
 	font-size: 3em;
 	display: block;
-	padding-bottom: .5em;
+	/* padding-bottom: .5em; */
 	border-bottom: 1px solid #ccc;
 	margin-bottom: .5em;
+	font-family: fantasy;
 }
 
 table{
@@ -96,27 +98,42 @@ label{
 	padding: 10px 0px;
 }
 
-button{
-	padding: .5em 2em;
-	border: 0;
+button {
 	border-bottom: 3px solid;
 	font-size: 1.2em;
 	cursor: pointer;
 	margin: 0;
-	margin-top: -3px;
 	color: #fff;
-	background-color:#0c8cd3;
+	background-color: #202223;
 	border-color: #04324c;
-	width: 20%;
-    display: block;
-    clear: both;
-    margin: 10px 0px;
+	width: 25%;
+	display: block;
+	height: 40px;
+	clear: both;
+	margin: 10px 0px;
+	border-radius: 20px;
+	font-family: fantasy;
+}
 
+.btn-inside-modal {
+	border: 0;
+	font-size: 1.2em;
+	cursor: cell;
+	color: #fff;
+	background-color: #202223;
+	border-color: #04324c;
+	clear: both;
+	margin: 20px 0px;
+	height: 50px;
+	border-radius: 8px;
+	border: 10;
+	width: 40%;
+	font-family: monospace;
 }
 
 button:active{
-	margin-top:0px;
-	border: 0;
+	background-color: white;
+	color: black;
 }
 
 button[disabled=disabled], button:disabled {
@@ -133,31 +150,32 @@ button[disabled=disabled], button:disabled {
 	border: 1px solid red;
 }
 
-/* The Modal (background) */
+
 .modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
+	display: none; 
+	position: fixed; 
+	z-index: 1; 
 	left: 0;
 	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	width: 100%;
+	height: 100%;
+	overflow: auto; 
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4); 
   }
   
-  /* Modal Content/Box */
+  
   .modal-content {
 		background-color: #fefefe;
-		margin: 15% auto; /* 15% from the top and centered */
+		margin: 15% auto; 
 		padding: 20px;
 		border: 1px solid #888;
-		width: 80%;
+		width: 60%;
+		height: fit-content;
 		border-radius: 15px 0 15px 15px;
 	}
 	
-  /* The Close Button */
+ 
   .close {
 		color: #aaa;
 		float: right;
