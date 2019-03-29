@@ -1,5 +1,5 @@
 var _this = document;
-window['main'] = this;
+// window['main'] = this; //  var de manipulação html
 this.carregaDashboard();
 this.loadColumns();
 var isValidForm = false;
