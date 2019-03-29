@@ -57,14 +57,18 @@ function loadJSON(callback) {
  }
 
  function openModalAdd() {
-    
+
     var modal = _this.getElementById('modal-add');
     var arrayNomes = [];
     var span = _this.getElementsByClassName("close")[0];
     
     var form = _this.getElementById('form-add');
     var inputs = form.querySelectorAll('input');
-    console.log('inputs: ', inputs);
+
+    form.querySelectorAll('input').forEach((item) => {
+        item.value = '';
+    });
+
     modal.style.display = "block";
     
     span.onclick = function() { 
@@ -141,7 +145,6 @@ function loadJSON(callback) {
         });
 
     var modal = _this.getElementById('modal-add');
-    console.log('modal: ', modal);
     modal.style.display = "none";
 
 }
